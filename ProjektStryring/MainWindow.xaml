@@ -1,0 +1,79 @@
+﻿<Window x:Class="ProjektStryring.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ProjektStryring"
+        mc:Ignorable="d"
+        Title="ProjektStyring" Height="720" Width="1280">
+    <Grid>
+        <Frame x:Name="Main" Margin="177,40,0,0" NavigationUIVisibility="Hidden" Navigated="Main_Navigated"/>
+        <Border Margin="0,30,1100,0" Background="#212529" BorderBrush="#31363a" BorderThickness="0,0,2,0">
+            <Grid>
+                <Grid x:Name="SideBar" Margin="0,0,0,0">
+                    <StackPanel Orientation="Vertical">
+                        <Button Content="MainPage" Click="btnHome">
+                            <Button.Template>
+                                <ControlTemplate>
+                                    <Border CornerRadius="7.5" >
+                                        <TextBlock Text="Startside" Foreground="White" 
+                                       HorizontalAlignment="left"
+                                       Margin="30,25,0,0"
+                                       FontSize="20"></TextBlock>
+                                    </Border>
+                                </ControlTemplate>
+                            </Button.Template>
+                        </Button>
+
+                        <Button Content="Projekter" Click="btnProject" >
+                            <Button.Template>
+                                <ControlTemplate>
+                                    <Border CornerRadius="7.5" >
+                                        <TextBlock Text="Projecter" Foreground="White" 
+                                       HorizontalAlignment="left"
+                                       Margin="30,10,0,0"
+                                       FontSize="20"></TextBlock>
+                                    </Border>
+                                </ControlTemplate>
+                            </Button.Template>
+                        </Button>
+
+                        <Button Content="Kalender" Click="btnCalender">
+                            <Button.Template>
+                                <ControlTemplate>
+                                    <Border CornerRadius="7.5" >
+                                        <TextBlock Text="Kalender" Foreground="White" 
+                                       HorizontalAlignment="left"
+                                       Margin="30,10,0,0"
+                                       FontSize="20"></TextBlock>
+                                    </Border>
+                                </ControlTemplate>
+                            </Button.Template>
+                        </Button>
+
+                        <Button Content="Personer" Click="btnPersons">
+                            <Button.Template>
+                                <ControlTemplate>
+                                    <Border CornerRadius="7.5" >
+                                        <TextBlock Text="Personer" Foreground="White" 
+                                       HorizontalAlignment="left"
+                                       Margin="30,10,0,0"
+                                       FontSize="20"></TextBlock>
+                                    </Border>
+                                </ControlTemplate>
+                            </Button.Template>
+                        </Button>
+
+                    </StackPanel>
+                </Grid>
+            </Grid>
+        </Border>
+        <Border Margin="0,0,0,650" Background="#343a40" BorderBrush="#454B51" BorderThickness="0,0,0,2">
+            <Grid Margin="0,0,30,0">
+                <Grid x:Name="User" HorizontalAlignment="Right" Margin="0,0,30,0">
+                </Grid>
+                <Image Source="picture/use.png" Width="30" Height="30" HorizontalAlignment="Right" />
+            </Grid>
+        </Border>
+    </Grid>
+</Window>

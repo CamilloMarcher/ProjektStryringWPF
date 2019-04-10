@@ -7,8 +7,8 @@
         mc:Ignorable="d"
         Title="ProjektStyring" Height="720" Width="1280">
     <Grid>
-        <Frame x:Name="Main" Margin="177,40,0,0" NavigationUIVisibility="Hidden" Navigated="Main_Navigated"/>
-        <Border Margin="0,30,1100,0" Background="#212529" BorderBrush="#31363a" BorderThickness="0,0,2,0">
+        <Frame x:Name="Main" Margin="177,40,0,0"  NavigationUIVisibility="Hidden" Navigated="Main_Navigated"/>
+        <Border Margin="0,40,0,0" HorizontalAlignment="Left" Width="172" Background="#212529" BorderBrush="#31363a" BorderThickness="0,0,2,0">
             <Grid>
                 <Grid x:Name="SideBar" Margin="0,0,0,0">
                     <StackPanel Orientation="Vertical">
@@ -18,7 +18,7 @@
                                     <Border CornerRadius="7.5" >
                                         <TextBlock Text="Startside" Foreground="White" 
                                        HorizontalAlignment="left"
-                                       Margin="30,25,0,0"
+                                       Margin="30,10,0,0"
                                        FontSize="20"></TextBlock>
                                     </Border>
                                 </ControlTemplate>
@@ -68,10 +68,19 @@
                 </Grid>
             </Grid>
         </Border>
-        <Border Margin="0,0,0,650" Background="#343a40" BorderBrush="#454B51" BorderThickness="0,0,0,2">
+        <Border Margin="0,0,0,0" VerticalAlignment="Top" Height="40" Background="#343a40" BorderBrush="#454B51" BorderThickness="0,0,0,2">
             <Grid Margin="0,0,30,0">
                 <Grid x:Name="User" HorizontalAlignment="Right" Margin="0,0,30,0">
                 </Grid>
+                <Button x:Name="Name" Click="btnName" Content="test!" Foreground="White" HorizontalAlignment="Right" VerticalAlignment="Center" FontSize="20" Margin="0,0,30,0">
+                    <Button.Template>
+                        <ControlTemplate TargetType="Button">
+                            <Border x:Name="Border">
+                                <ContentPresenter></ContentPresenter>
+                            </Border>
+                        </ControlTemplate>
+                    </Button.Template>
+                </Button>
                 <Image Source="picture/use.png" Width="30" Height="30" HorizontalAlignment="Right" />
             </Grid>
         </Border>

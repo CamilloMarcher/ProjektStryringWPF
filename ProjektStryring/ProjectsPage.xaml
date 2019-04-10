@@ -1,0 +1,60 @@
+﻿<Page x:Class="ProjektStryring.ProjectsPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:ProjektStryring"
+      mc:Ignorable="d" 
+      d:DesignHeight="600" d:DesignWidth="1050"
+      Title="ProjectsPage">
+    <Page.Resources>
+        <Style x:Key="TransparentBTN" TargetType="Button">
+            <Style.Setters>
+                <Setter Property="Button.Template">
+                    <Setter.Value>
+                        <ControlTemplate TargetType="Button">
+                            <Border x:Name="Border" BorderThickness="1" BorderBrush="LightGray">
+                                <ContentPresenter Margin="15,0,0,0" VerticalAlignment="Center"></ContentPresenter>
+                            </Border>
+                        </ControlTemplate>
+                    </Setter.Value>
+                </Setter>
+            </Style.Setters>
+        </Style>
+    </Page.Resources>
+    <Grid>
+        <Button Margin="50,10,0,0" Click="BtnMakeProject" Width="200" Height="30" Foreground="Black"  VerticalAlignment="Top" HorizontalAlignment="Left" Content="Opret Project" FontWeight="Bold">
+            <Button.Template>
+                <ControlTemplate TargetType="Button">
+                    <Border Background="AliceBlue" CornerRadius="10">
+                        <ContentPresenter VerticalAlignment="Center" HorizontalAlignment="Center"></ContentPresenter>
+                    </Border>
+                </ControlTemplate>
+                </Button.Template>
+        </Button>
+        <Grid Margin="50,20,550,0">
+            <Grid Margin="0,30,0,0">
+                <Button Margin="0,0,100,0" Content="Projekt-navn" IsEnabled="False" Style="{StaticResource TransparentBTN}" Width="350" Height="30" Foreground="Black" FontSize="14" VerticalAlignment="Top" HorizontalAlignment="Left" FontWeight="Bold"></Button>
+                <Button Margin="350,0,0,0" Content="StartDato" IsEnabled="False" Style="{StaticResource TransparentBTN}" Width="100" Height="30" Foreground="Black" FontSize="14" VerticalAlignment="Top" HorizontalAlignment="Left" FontWeight="Bold"></Button>
+                <Grid x:Name="NowProjectName" Margin="0,30,100,0">
+
+                </Grid>
+                <Grid x:Name="NowProjectDate" Margin="350,30,0,0">
+
+                </Grid>
+            </Grid>
+        </Grid>
+        <Grid Margin="550,20,50,0">
+            <Grid Margin="0,30,10,0">
+                <Button Margin="0,0,100,0" Content="Projekt-navn" IsEnabled="False" Style="{StaticResource TransparentBTN}" Width="350" Height="30" Foreground="Black" FontSize="14" VerticalAlignment="Top" HorizontalAlignment="Left" FontWeight="Bold"></Button>
+                <Button Margin="350,0,0,0" Content="SlutDato" IsEnabled="False" Style="{StaticResource TransparentBTN}" Width="100" Height="30" Foreground="Black" FontSize="14" VerticalAlignment="Top" HorizontalAlignment="Left" FontWeight="Bold"></Button>
+                <Grid x:Name="PreProjectName" Margin="0,30,100,0">
+
+                </Grid>
+                <Grid x:Name="PreProjectDate" Margin="350,30,0,0">
+
+                </Grid>
+            </Grid>
+        </Grid>
+    </Grid>
+</Page>

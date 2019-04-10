@@ -1,0 +1,43 @@
+﻿<Window x:Class="ProjektStryring.TaskEditAdd"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ProjektStryring"
+        mc:Ignorable="d"
+        Title="TaskEditAdd" Height="350" Width="400">
+    <Grid>
+        <TextBlock Margin="10,10,0,0" Text="Title:" FontSize="20" VerticalAlignment="Top" HorizontalAlignment="Left"/>
+        <TextBox Margin="60,10,0,0" Height="30" Width="200" x:Name="Title" VerticalAlignment="Top" HorizontalAlignment="Left"/>
+
+        <TextBlock Margin="10,50,0,0" Text="Beskrivelse:" FontSize="20" VerticalAlignment="Top" HorizontalAlignment="Left"/>
+        <TextBox Margin="10,80,0,0" Height="60" Width="300" x:Name="Description" VerticalAlignment="Top" HorizontalAlignment="Left"/>
+
+        <TextBlock Margin="10,160,0,0" Text="Start Dato:" FontSize="20" VerticalAlignment="Top" HorizontalAlignment="Left"/>
+        <DatePicker Margin="110,160,0,0" Height="30" Width="150" x:Name="StartDate" VerticalAlignment="Top" HorizontalAlignment="Left" FirstDayOfWeek="Monday"/>
+        <TextBox Margin="270,160,0,0" Height="30" Width="100" x:Name="StartTime" VerticalAlignment="Top" HorizontalAlignment="Left" Text="00:00" FontSize="20" AutomationProperties.HelpText="00:00" MaxLength="5" />
+
+        <TextBlock Margin="10,200,0,0" Text="Slut Dato:" FontSize="20" VerticalAlignment="Top" HorizontalAlignment="Left"/>
+        <DatePicker Margin="110,200,0,0" Height="30" Width="150" x:Name="EndDate" VerticalAlignment="Top" HorizontalAlignment="Left" FirstDayOfWeek="Monday"/>
+        <TextBox Margin="270,200,0,0" Height="30" Width="100" x:Name="EndTime" VerticalAlignment="Top" HorizontalAlignment="Left" Text="00:00" FontSize="20" AutomationProperties.HelpText="00:00" MaxLength="5" />
+        
+        <Button Margin="10,275,0,0" Width="50" Height="20" Content="Gem" VerticalAlignment="Top" HorizontalAlignment="Left" Click="Save">
+            <Button.Template>
+                <ControlTemplate TargetType="Button">
+                    <Border Background="Green" CornerRadius="10">
+                        <ContentPresenter VerticalAlignment="Center" HorizontalAlignment="Center"></ContentPresenter>
+                    </Border>
+                </ControlTemplate>
+            </Button.Template>
+        </Button>
+        <Button Margin="70,275,0,0" Width="50" Height="20" Content="Luk" VerticalAlignment="Top" HorizontalAlignment="Left" Click="Close">
+            <Button.Template>
+                <ControlTemplate TargetType="Button">
+                    <Border Background="Red" CornerRadius="10">
+                        <ContentPresenter VerticalAlignment="Center" HorizontalAlignment="Center"></ContentPresenter>
+                    </Border>
+                </ControlTemplate>
+            </Button.Template>
+        </Button>
+    </Grid>
+</Window>

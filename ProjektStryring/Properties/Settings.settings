@@ -3,10 +3,13 @@
   <Profiles />
   <Settings>
     <Setting Name="Username" Type="System.String" Scope="User">
-      <Value Profile="(Default)">null</Value>
+      <Value Profile="(Default)" />
     </Setting>
     <Setting Name="Password" Type="System.String" Scope="User">
-      <Value Profile="(Default)">null</Value>
+      <Value Profile="(Default)" />
+    </Setting>
+    <Setting Name="lockedOut" Type="System.DateTime" Scope="User">
+      <Value Profile="(Default)">2019-01-01</Value>
     </Setting>
   </Settings>
 </SettingsFile>

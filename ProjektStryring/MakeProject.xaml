@@ -1,0 +1,43 @@
+﻿<Window x:Class="ProjektStryring.MakeProject"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ProjektStryring"
+        mc:Ignorable="d"
+        Title="MakeProject" Height="450" Width="800">
+    <Grid>
+        <TextBlock Margin="10,0,0,0" Height="60" FontSize="40" VerticalAlignment="Top" HorizontalAlignment="Left">Opret nyt projekt</TextBlock>
+        <TextBlock Margin="10,75,0,0" Height="40" FontSize="20" VerticalAlignment="Top" HorizontalAlignment="Left">Angiv et navn til projektet</TextBlock>
+        <TextBox x:Name="ProjectName" Margin="10,105,0,0" Width="700" Height="40" FontSize="20" MaxLength="40" VerticalAlignment="Top" HorizontalAlignment="Left"></TextBox>
+        <TextBlock Margin="10,145,0,0" Height="40" FontSize="20" VerticalAlignment="Top" HorizontalAlignment="Left" >Angiv et Startdato</TextBlock>
+        <DatePicker x:Name="ProjectStartDate" Margin="10,175,0,0" Width="700" Height="40" VerticalAlignment="Top" HorizontalAlignment="Left" />
+        <TextBlock Margin="10,220,0,0" Height="40" FontSize="20" VerticalAlignment="Top" HorizontalAlignment="Left">Angiv en beskrivelse til projektet</TextBlock>
+        <TextBox x:Name="ProjectBeskrivelse" Margin="10,250,0,0" Width="700" Height="40" FontSize="20" VerticalAlignment="Top" HorizontalAlignment="Left"></TextBox>
+
+        <Button Click="BtnMakeProject" Margin="25,0,0,10" VerticalAlignment="Bottom" HorizontalAlignment="Left" Width="350">
+            <Button.Template>
+                <ControlTemplate>
+                    <Border CornerRadius="7.5" Background="Green" >
+                        <TextBlock Text="Opret" Foreground="White" 
+                                       HorizontalAlignment="center"
+                                       VerticalAlignment="Center"
+                                       FontSize="40" FontWeight="Bold"></TextBlock>
+                    </Border>
+                </ControlTemplate>
+            </Button.Template>
+        </Button>
+        <Button Click="BtnCanel" Margin="0,0,25,10" VerticalAlignment="Bottom" HorizontalAlignment="Right" Width="350">
+            <Button.Template>
+                <ControlTemplate>
+                    <Border CornerRadius="7.5" Background="DarkRed" >
+                        <TextBlock Text="Fortryd" Foreground="White" 
+                                       HorizontalAlignment="center"
+                                       VerticalAlignment="Center"
+                                       FontSize="40" FontWeight="Bold"></TextBlock>
+                    </Border>
+                </ControlTemplate>
+            </Button.Template>
+        </Button>
+    </Grid>
+</Window>

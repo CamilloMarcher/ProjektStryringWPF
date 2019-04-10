@@ -27,6 +27,10 @@ namespace ProjektStryring.Logic
         }
         #region AD
         #region Getinfo
+        public string GetUni()
+        {
+            return ad.UserInfo[0];
+        }
         //looks in the AD to see if the user is in it and gave the right info
         public bool Login(string uni, string password)
         {

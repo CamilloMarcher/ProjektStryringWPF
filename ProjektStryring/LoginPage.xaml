@@ -68,7 +68,7 @@
                     </PasswordBox>
                 </Grid>
                 <CheckBox x:Name="KeepLogin" Content="Keep Login" HorizontalAlignment="Center" Margin="0,180,0,0" VerticalAlignment="Top" Height="22" Width="90"/>
-                <Button Content="Login" Margin="0,223,0,0" Click="Login_Click"  HorizontalAlignment="Center" VerticalAlignment="Top" Width="350" Height="50" FontSize="36" FontFamily="SimSun" >
+                <Button x:Name="Login" Content="Login" Margin="0,223,0,0" Click="Login_Click"  HorizontalAlignment="Center" VerticalAlignment="Top" Width="350" Height="50" FontSize="36" FontFamily="SimSun" >
                     <Button.Template>
                         <ControlTemplate>
                             <Border CornerRadius="7.5" Background="#007bff">

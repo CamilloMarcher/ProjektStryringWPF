@@ -35,7 +35,7 @@ namespace ProjektStryring.Logic.Dal
                 connection.Close();
                 return true;
             }
-            catch
+            catch (Exception e)
             {
                 connection.Close();
                 return false;
@@ -664,7 +664,7 @@ namespace ProjektStryring.Logic.Dal
         //updates a task for a group
         public void UpdateTask(Models.Task task, int ID, int teamID)
         {
-            string query = string.Format("exec dbo.spTask_UpdateTask {0}, {1}, '{2}', '{3}', '{4}'", teamID, ID, task.Desc, task.StartDate.ToString("yyyy-MM-dd") + " " + task.StartTime.ToString("HH:mm:ss"), task.EndDate.ToString("yyyy-MM-dd") + " " + task.EndTime.ToString("HH:mm:ss"));
+            string query = string.Format("exec dbo.spTask_UpdateTask {0}, {1}, '{2}', '{3}', '{4}'", teamID, ID, task.Desc, task.StartDate.ToString("yyyy-MM-dd HH:mm:ss"), task.EndDate.ToString("yyyy-MM-dd HH:mm:ss"));
             DBQueryExecute(query);
         }
         //updates the description of the project

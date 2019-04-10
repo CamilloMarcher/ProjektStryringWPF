@@ -117,7 +117,7 @@ namespace ProjektStryring.Logic.Dal
         //looks if the user is login 
         public bool IsUserLogin()
         {
-            if (userInfo[0] != null && userInfo[1] != null)
+            if (userInfo[0] != "" && userInfo[1] != "")
             {
                 return true;
             }

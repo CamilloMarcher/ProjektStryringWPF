@@ -21,43 +21,31 @@ namespace ProjektStryring
         public readonly static Logic.Logic logic = new Logic.Logic();
         public MainWindow()
         {
+            if (Settings.Default.Username.ToString() != "" && Settings.Default.Password.ToString() != "")
+            {
+                MainWindow.logic.SaveUser(Settings.Default.Username, Settings.Default.Password);
+            }
             InitializeComponent();
             Models.Layout layout = logic.GetLayoutInfo(Settings.Default.Username);
             List<Models.Group> groups = layout.GroupList;
-            Button button = new Button();
-            for (int i = 0; i < groups.Count; ++i)
+
+            Name.Content = layout.Name;
+        }
+        public MainWindow(string uni, string password)
+        {
+            if (Settings.Default.Username.ToString() != "" && Settings.Default.Password.ToString() != "")
             {
-                button = new Button()
-                {
-                    VerticalAlignment = VerticalAlignment.Top,
-                    Content = groups[i].Name,
-                    Margin = new Thickness(0, i * 30.0, 0, 0),
-                    Height = 30,
-                    Style = RemoveHoverPressed(),
-                    Background = null,
-                    Foreground = new SolidColorBrush(Color.FromRgb(148, 157, 154)),
-                    Tag = groups[i].Id
-                };
-                button.Click += new RoutedEventHandler(Button_Click);
-                this.SideBar.Children.Add(button);
+                MainWindow.logic.SaveUser(Settings.Default.Username, Settings.Default.Password);
             }
-
-
-            
-
-            button = new Button()
+            else
             {
-                VerticalAlignment = VerticalAlignment.Top,
-                HorizontalAlignment = HorizontalAlignment.Right,
-                Content = layout.Name,
-                Height = 30,
-                BorderThickness = new Thickness(0),
-                Style = RemoveHoverPressed(),
-                Background = null,
-                Foreground = new SolidColorBrush(Color.FromRgb(148, 157, 154))
-            };
-            button.Click += new RoutedEventHandler(Button_Click);
-            this.User.Children.Add(button);
+                MainWindow.logic.SaveUser(uni, password);
+            }
+            InitializeComponent();
+            Models.Layout layout = logic.GetLayoutInfo(uni);
+            List<Models.Group> groups = layout.GroupList;
+
+            Name.Content = layout.Name;
         }
 
         private void btnHome (object sender, RoutedEventArgs e)
@@ -67,7 +55,7 @@ namespace ProjektStryring
 
         private void btnProject (object sender, RoutedEventArgs e)
         {
-            Main.Content = new ProjectPage();
+            Main.Content = new ProjectsPage();
         }
 
         private void btnCalender (object sender, RoutedEventArgs e)
@@ -79,33 +67,39 @@ namespace ProjektStryring
         {
             Main.Content = new PersonsPage();
         }
-
-        private Style RemoveHoverPressed()
+        private void btnName(object sender, RoutedEventArgs e)
         {
-            Style style = new Style(typeof(Button));
-
-            Trigger t = new Trigger
+            bool logout = false;
+            MessageBoxResult result = MessageBox.Show("Vil du logge af\nklik \"OK\" for at logge af", "Logger af", MessageBoxButton.OKCancel);
+            switch (result)
             {
-                Property = Button.IsMouseOverProperty,
-                Value = true
-            };
-            Setter setter = new Setter
+                case MessageBoxResult.OK:
+                    logout = true;
+                    break;
+                case MessageBoxResult.Cancel:
+                    break;
+            }
+            if (logout)
             {
-                Property = Button.BackgroundProperty,
-                Value = Brushes.DarkGoldenrod
-            };
-            t.Setters.Add(setter);
-            style.Triggers.Add(t); // Important: add a trigger before applying style
-            return style;
-        }
-        public void Button_Click(object obj, EventArgs e)
-        {
-
+                Settings.Default.Username = "";
+                Settings.Default.Password = "";
+                Settings.Default.Save();
+                Settings.Default.Reload();
+                logic.SaveUser("", "");
+                LoginPage lp = new LoginPage(true);
+                lp.Show();
+                Close();
+            }
         }
 
         private void Main_Navigated(object sender, NavigationEventArgs e)
         {
 
+        }
+
+        public void NewPage(Page newPage)
+        {
+            Main.Content = newPage;
         }
     }
 }

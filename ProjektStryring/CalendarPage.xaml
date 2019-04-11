@@ -7,8 +7,46 @@
       mc:Ignorable="d" 
       d:DesignHeight="600" d:DesignWidth="1050"
       Title="CalendarPage">
-
+    <Page.Resources>
+        <Style x:Key="TransparentBTN" TargetType="Button">
+            <Style.Setters>
+                <Setter Property="Button.Template">
+                    <Setter.Value>
+                        <ControlTemplate TargetType="Button">
+                            <Border x:Name="Border" BorderThickness="0,0,0,1" BorderBrush="LightGray">
+                                <ContentPresenter Margin="15,0,0,0" VerticalAlignment="Center"></ContentPresenter>
+                            </Border>
+                        </ControlTemplate>
+                    </Setter.Value>
+                </Setter>
+            </Style.Setters>
+        </Style>
+    </Page.Resources>
     <Grid>
-        <TextBlock Text="Kalender" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+        <ScrollViewer VerticalScrollBarVisibility="Auto">
+            <Grid Margin="10,25,0,0">
+                <Grid x:Name="UserCourses" Height="auto" VerticalAlignment="Top">
+                    <Grid x:Name="Courses" Margin="0,40,0,0" Width="330" VerticalAlignment="Top" HorizontalAlignment="Left">
+
+                    </Grid>
+                    <ScrollViewer VerticalScrollBarVisibility="Auto" MaxHeight="400">
+                        <Grid x:Name="UpComing" Margin="660,40,0,0" Width="330" Height="auto" VerticalAlignment="Top" HorizontalAlignment="Left">
+
+                        </Grid>
+                    </ScrollViewer>
+                </Grid>
+                <Grid x:Name="AdminPlace" Height="auto" VerticalAlignment="Top">
+                    <Grid x:Name="NormalEvent" Margin="0,0,0,0" Width="330" VerticalAlignment="Top" HorizontalAlignment="Left">
+                        
+                    </Grid>
+                    <Grid x:Name="importenEvent" Margin="330,0,0,0" Width="330" VerticalAlignment="Top" HorizontalAlignment="Left">
+                        
+                    </Grid>
+                    <Grid x:Name="Holidays" Margin="660,0,0,0" Width="330" VerticalAlignment="Top" HorizontalAlignment="Left">
+                        
+                    </Grid>
+                </Grid>
+            </Grid>
+        </ScrollViewer>
     </Grid>
 </Page>

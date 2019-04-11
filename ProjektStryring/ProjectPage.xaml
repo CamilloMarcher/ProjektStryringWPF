@@ -30,7 +30,7 @@
             <Grid>
                 <ListBox x:Name="Comment" Margin="0,190,0,50" BorderThickness="0" Background="Transparent"></ListBox>
                 <TextBox x:Name="CommentField" Margin="0,0,50,0" Height="50" VerticalAlignment="Bottom"></TextBox>
-                <Button Margin="460,0,0,0" Height="50" VerticalAlignment="Bottom" Content="Send" Click="AddComment">
+                <Button x:Name="CommentSend" Margin="460,0,0,0" Height="50" VerticalAlignment="Bottom" Content="Send" Click="AddComment">
                     <Button.Template>
                         <ControlTemplate TargetType="Button">
                             <Border Background="Green" CornerRadius="0,10,10,0">
@@ -47,7 +47,7 @@
             </Grid>
         </Grid>
         <Grid Margin="0,550,0,0">
-            <Button Margin="0,0,25,25" Width="100" Height="40" Content="Save" HorizontalAlignment="Right" VerticalAlignment="Bottom" Click="SaveGroup">
+            <Button x:Name="Save" Margin="0,0,25,10" Width="100" Height="40" Content="Save" HorizontalAlignment="Right" VerticalAlignment="Bottom" Click="SaveGroup">
                 <Button.Template>
                     <ControlTemplate TargetType="Button">
                         <Border Background="LawnGreen" CornerRadius="20">

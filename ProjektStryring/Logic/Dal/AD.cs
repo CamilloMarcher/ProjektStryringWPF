@@ -21,7 +21,7 @@ namespace ProjektStryring.Logic.Dal
         //trys to logon with the information the user gave in login page to see if the user can login
         public bool ValidateUser(string userName, string password)
         {
-            bool Valid = false;
+        bool Valid = false;
             try
             {
                 PrincipalContext pc = new PrincipalContext(ContextType.Domain, "skpit-slagelse");
@@ -51,6 +51,9 @@ namespace ProjektStryring.Logic.Dal
         //gets the name and what it's Studing from AD 
         public Models.Person GetUserInfo(string UNI)
         {
+            name = "";
+            isStudent = true;
+            studing = "";
             try
             {
                 //login to ad with the server 

@@ -30,6 +30,14 @@ namespace ProjektStryring
             List<Models.Group> groups = layout.GroupList;
 
             Name.Content = layout.Name;
+            if (logic.IsAdmin(logic.GetUni()) && !logic.IsWebAdmin(logic.GetUni()))
+            {
+                Main.Content = new PersonsPage();
+            }
+            else
+            {
+                Main.Content = new HomePage();
+            }
         }
         public MainWindow(string uni, string password)
         {
@@ -44,8 +52,15 @@ namespace ProjektStryring
             InitializeComponent();
             Models.Layout layout = logic.GetLayoutInfo(uni);
             List<Models.Group> groups = layout.GroupList;
-
             Name.Content = layout.Name;
+            if (logic.IsAdmin(uni) && !logic.IsWebAdmin(uni))
+            {
+                Main.Content = new PersonsPage();
+            }
+            else
+            {
+                Main.Content = new HomePage();
+            }
         }
 
         private void btnHome (object sender, RoutedEventArgs e)

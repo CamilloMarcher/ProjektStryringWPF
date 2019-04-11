@@ -72,17 +72,31 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="AddEditCourse.xaml.cs">
+      <DependentUpon>AddEditCourse.xaml</DependentUpon>
+    </Compile>
     <Compile Include="AddMember.xaml.cs">
       <DependentUpon>AddMember.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Event.xaml.cs">
+      <DependentUpon>Event.xaml</DependentUpon>
     </Compile>
     <Compile Include="TaskEditAdd.xaml.cs">
       <DependentUpon>TaskEditAdd.xaml</DependentUpon>
     </Compile>
+    <Page Include="AddEditCourse.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="AddMember.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="CalendarPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Event.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

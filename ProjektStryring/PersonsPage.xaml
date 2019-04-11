@@ -7,9 +7,118 @@
       mc:Ignorable="d" 
       d:DesignHeight="600" d:DesignWidth="1050"
       Title="PersonsPage">
-
+    <Page.Resources>
+        <Style x:Key="TransparentBTN" TargetType="Button">
+            <Style.Setters>
+                <Setter Property="Button.Template">
+                    <Setter.Value>
+                        <ControlTemplate TargetType="Button">
+                            <Border x:Name="Border" BorderThickness="0,0,0,1" BorderBrush="LightGray">
+                                <ContentPresenter Margin="15,0,0,0" VerticalAlignment="Center"></ContentPresenter>
+                            </Border>
+                        </ControlTemplate>
+                    </Setter.Value>
+                </Setter>
+            </Style.Setters>
+        </Style>
+    </Page.Resources>
     <Grid>
-        <TextBlock Text="Personspage"  Margin="972,542,10,10"/>
-        
+        <TextBox TextChanged="TextBox_TextChanged" Margin="0,25,25,0" Width="250" FontSize="20" VerticalAlignment="Top" HorizontalAlignment="Right">
+            <TextBox.Template>
+                <ControlTemplate TargetType="{x:Type TextBoxBase}">
+                    <Border Background="{TemplateBinding Background}" BorderBrush="DarkGray" BorderThickness="{TemplateBinding BorderThickness}" CornerRadius="15,15,15,15" Padding="15,0,15,0">
+                        <ScrollViewer x:Name="PART_ContentHost"/>
+                    </Border>
+                </ControlTemplate>
+            </TextBox.Template>
+        </TextBox>
+        <Grid Margin="0,35,0,0">
+            <Grid Margin="0,35,0,0" Height="30" VerticalAlignment="Top">
+                <Button Margin="0,0,0,0" Width="700" HorizontalAlignment="Left" Content="Person" FontWeight="Bold" FontSize="20">
+                    <Button.Template>
+                        <ControlTemplate TargetType="Button">
+                            <Border x:Name="Border" BorderThickness="0,0,0,1" BorderBrush="LightGray">
+                                <ContentPresenter Margin="15,0,0,0" VerticalAlignment="Center" HorizontalAlignment="Center"></ContentPresenter>
+                            </Border>
+                        </ControlTemplate>
+                    </Button.Template>
+                </Button>
+                <Button Margin="705,0,0,0" Width="350" HorizontalAlignment="Left" Content="Næste hovedforløb" FontWeight="Bold" FontSize="20">
+                    <Button.Template>
+                        <ControlTemplate TargetType="Button">
+                            <Border x:Name="Border" BorderThickness="0,0,0,1" BorderBrush="LightGray">
+                                <ContentPresenter Margin="15,0,0,0" VerticalAlignment="Center" HorizontalAlignment="Center"></ContentPresenter>
+                            </Border>
+                        </ControlTemplate>
+                    </Button.Template>
+                </Button>
+            </Grid>
+            <Grid Margin="0,65,0,0" Height="30" VerticalAlignment="Top">
+                <Button Margin="0,0,0,0" Width="400" HorizontalAlignment="Left" Content="Navn" FontSize="20" Tag="Name" Click="Button_Click">
+                    <Button.Template>
+                        <ControlTemplate TargetType="Button">
+                            <Border x:Name="Border" BorderThickness="0,0,0,1" BorderBrush="LightGray">
+                                <ContentPresenter VerticalAlignment="Center" HorizontalAlignment="Center"></ContentPresenter>
+                            </Border>
+                        </ControlTemplate>
+                    </Button.Template>
+                </Button>
+                <Button Margin="400,0,0,0" Width="100" HorizontalAlignment="Left" Content="UNI" FontSize="20" Tag="UNI" Click="Button_Click">
+                    <Button.Template>
+                        <ControlTemplate TargetType="Button">
+                            <Border x:Name="Border" BorderThickness="0,0,0,1" BorderBrush="LightGray">
+                                <ContentPresenter VerticalAlignment="Center" HorizontalAlignment="Center"></ContentPresenter>
+                            </Border>
+                        </ControlTemplate>
+                    </Button.Template>
+                </Button>
+                <Button Margin="500,0,0,0" Width="200" HorizontalAlignment="Left" Content="Linje" FontSize="20" Tag="Studing" Click="Button_Click">
+                    <Button.Template>
+                        <ControlTemplate TargetType="Button">
+                            <Border x:Name="Border" BorderThickness="0,0,0,1" BorderBrush="LightGray">
+                                <ContentPresenter VerticalAlignment="Center" HorizontalAlignment="Center"></ContentPresenter>
+                            </Border>
+                        </ControlTemplate>
+                    </Button.Template>
+                </Button>
+                <Button Margin="705,0,0,0" Width="175" HorizontalAlignment="Left" Content="Start-Dato" FontSize="20" Tag="StartDate" Click="Button_Click">
+                    <Button.Template>
+                        <ControlTemplate TargetType="Button">
+                            <Border x:Name="Border" BorderThickness="0,0,0,1" BorderBrush="LightGray">
+                                <ContentPresenter VerticalAlignment="Center" HorizontalAlignment="Center"></ContentPresenter>
+                            </Border>
+                        </ControlTemplate>
+                    </Button.Template>
+                </Button>
+                <Button Margin="880,0,0,0" Width="175" HorizontalAlignment="Left" Content="Slut-Dato" FontSize="20" Tag="EndDate" Click="Button_Click">
+                    <Button.Template>
+                        <ControlTemplate TargetType="Button">
+                            <Border x:Name="Border" BorderThickness="0,0,0,1" BorderBrush="LightGray">
+                                <ContentPresenter VerticalAlignment="Center" HorizontalAlignment="Center"></ContentPresenter>
+                            </Border>
+                        </ControlTemplate>
+                    </Button.Template>
+                </Button>
+            </Grid>
+            <ScrollViewer Margin="0,95,0,0">
+                <Grid>
+                    <Grid x:Name="Name" Margin="0,0,0,0" Width="400" HorizontalAlignment="Left">
+
+                    </Grid>
+                    <Grid x:Name="UNI" Margin="400,0,0,0" Width="100" HorizontalAlignment="Left">
+
+                    </Grid>
+                    <Grid x:Name="Studing" Margin="500,0,0,0" Width="200" HorizontalAlignment="Left">
+
+                    </Grid>
+                    <Grid x:Name="StartDate" Margin="705,0,0,0" Width="175" HorizontalAlignment="Left">
+
+                    </Grid>
+                    <Grid x:Name="EndDate" Margin="880,0,0,0" Width="175" HorizontalAlignment="Left">
+
+                    </Grid>
+                </Grid>
+            </ScrollViewer>
+        </Grid>
     </Grid>
 </Page>

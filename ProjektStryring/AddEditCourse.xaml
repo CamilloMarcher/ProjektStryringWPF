@@ -1,0 +1,36 @@
+﻿<Window x:Class="ProjektStryring.AddEditCourse"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ProjektStryring"
+        mc:Ignorable="d"
+        Title="AddEditCourse" Height="300" Width="325">
+    <Grid>
+        <ComboBox x:Name="CourseNumber" HorizontalAlignment="Left" Margin="100,50,0,0" VerticalAlignment="Top" Width="53"/>
+        <Label Content="Hovedforløb:" HorizontalAlignment="Left" Margin="10,50,0,0" VerticalAlignment="Top"/>
+        <DatePicker x:Name="StartDate" HorizontalAlignment="Left" Margin="100,100,0,0" VerticalAlignment="Top" Width="200"/>
+        <DatePicker x:Name="EndDate" HorizontalAlignment="Left" Margin="100,150,0,0" VerticalAlignment="Top" Width="200"/>
+        <Label Content="Start-dato:" HorizontalAlignment="Left" Margin="10,99,0,0" VerticalAlignment="Top"/>
+        <Label Content="Slut-dato:" HorizontalAlignment="Left" Margin="10,149,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.591,-1.551"/>
+        <Button Content="Gem" Margin="0,200,0,0" VerticalAlignment="Top" FontSize="20" Width="100" Click="Save_Click">
+            <Button.Template>
+                <ControlTemplate TargetType="Button">
+                    <Border Background="CornflowerBlue" CornerRadius="10">
+                        <ContentPresenter Margin="0,0,0,0" VerticalAlignment="Center" HorizontalAlignment="Center"></ContentPresenter>
+                    </Border>
+                </ControlTemplate>
+            </Button.Template>
+        </Button>
+        <Button x:Name="Remove" Content="Fjern" Margin="225,200,17,0" VerticalAlignment="Top" FontSize="20" Width="75" Click="Remove_Click">
+            <Button.Template>
+                <ControlTemplate TargetType="{x:Type Button}">
+                    <Border Background="OrangeRed" CornerRadius="10">
+                        <ContentPresenter Margin="0,0,0,0" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                    </Border>
+                </ControlTemplate>
+            </Button.Template>
+        </Button>
+
+    </Grid>
+</Window>

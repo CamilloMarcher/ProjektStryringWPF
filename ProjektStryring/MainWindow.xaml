@@ -7,7 +7,7 @@
         mc:Ignorable="d"
         Title="ProjektStyring" Height="720" Width="1280">
     <Grid>
-        <Frame x:Name="Main" Margin="177,40,0,0"  NavigationUIVisibility="Hidden" Navigated="Main_Navigated"/>
+        <Frame x:Name="Main" Margin="177,40,0,0"  NavigationUIVisibility="Hidden" Navigated="Main_Navigated" />
         <Border Margin="0,40,0,0" HorizontalAlignment="Left" Width="172" Background="#212529" BorderBrush="#31363a" BorderThickness="0,0,2,0">
             <Grid>
                 <Grid x:Name="SideBar" Margin="0,0,0,0">

@@ -9,6 +9,8 @@ namespace ProjektStryring
     {
         private int teamID;
         private DispatcherTimer timer;
+        private bool adminInGroup = false;
+        private bool userInGroup = false;
 
         public ProjectPage(int ID)
         {
@@ -22,6 +24,21 @@ namespace ProjektStryring
             Name.Text = group.Name;
             Desc.Text = group.Description;
             Update(new object(), new EventArgs());
+            if (MainWindow.logic.IsUserAdminInGroup(MainWindow.logic.GetUni(), teamID) || MainWindow.logic.IsAdmin(MainWindow.logic.GetUni()))
+            {
+                adminInGroup = true;
+            }
+            if (MainWindow.logic.IsUserInGroup(MainWindow.logic.GetUni(), teamID) || MainWindow.logic.IsAdmin(MainWindow.logic.GetUni()))
+            {
+                userInGroup = true;
+            }
+            else
+            {
+                CommentField.Visibility = Visibility.Hidden;
+                CommentSend.Visibility = Visibility.Hidden;
+                Save.Visibility = Visibility.Hidden;
+                Desc.IsReadOnly = true;
+            }
         }
 
         private void UpGradeMember(object sender, RoutedEventArgs e)
@@ -42,8 +59,11 @@ namespace ProjektStryring
 
         private void AddMember(object sender, RoutedEventArgs e)
         {
-            AddMember addMember = new AddMember(teamID);
-            addMember.Show();
+            if (adminInGroup)
+            {
+                AddMember addMember = new AddMember(teamID);
+                addMember.Show();
+            }
         }
 
         private void AddDeadLine(object sender, RoutedEventArgs e)
@@ -83,15 +103,18 @@ namespace ProjektStryring
             for (int i = 0; i < group.Members.Count; i++)
             {
                 ct = new ContextMenu();
-                mi = new MenuItem() { Header = "Gør til Administrator", Tag = group.Members[i].UNI };
-                mi.Click += UpGradeMember;
-                ct.Items.Add(mi);
-                mi = new MenuItem() { Header = "Gør til Normal medlemmer", Tag = group.Members[i].UNI };
-                mi.Click += DownGradeMember;
-                ct.Items.Add(mi);
-                mi = new MenuItem() { Header = "Fjern fra projektet", Tag = group.Members[i].UNI };
-                mi.Click += RemoveMember;
-                ct.Items.Add(mi);
+                if (adminInGroup)
+                {
+                    mi = new MenuItem() { Header = "Gør til Administrator", Tag = group.Members[i].UNI };
+                    mi.Click += UpGradeMember;
+                    ct.Items.Add(mi);
+                    mi = new MenuItem() { Header = "Gør til Normal medlemmer", Tag = group.Members[i].UNI };
+                    mi.Click += DownGradeMember;
+                    ct.Items.Add(mi);
+                    mi = new MenuItem() { Header = "Fjern fra projektet", Tag = group.Members[i].UNI };
+                    mi.Click += RemoveMember;
+                    ct.Items.Add(mi);
+                }
                 button = new Button()
                 {
                     VerticalAlignment = VerticalAlignment.Top,
@@ -108,41 +131,45 @@ namespace ProjektStryring
                 height += 40;
                 LeftSide.Children.Add(button);
             }
-            height += 40;
-            button = new Button()
+            if (userInGroup)
             {
-                VerticalAlignment = VerticalAlignment.Top,
-                HorizontalAlignment = HorizontalAlignment.Left,
-                Content = "Deadlines  +",
-                Style = style,
-                Height = 40,
-                Width = 200,
-                Margin = new Thickness(0, height, 0, 0),
-            };
-            button.Click += AddDeadLine;
-            LeftSide.Children.Add(button);
-            height += 40;
-            for (int i = 0; i < group.Tasks.Count; i++)
-            {
-                ct = new ContextMenu();
-                mi = new MenuItem() { Header = "Fjern opgave", Tag = group.Tasks[i].ID };
-                mi.Click += RemoveTask;
-                ct.Items.Add(mi);
+
+                height += 40;
                 button = new Button()
                 {
                     VerticalAlignment = VerticalAlignment.Top,
                     HorizontalAlignment = HorizontalAlignment.Left,
-                    Content = group.Tasks[i].Title,
-                    Tag = group.Tasks[i],
+                    Content = "Deadlines  +",
                     Style = style,
                     Height = 40,
                     Width = 200,
                     Margin = new Thickness(0, height, 0, 0),
-                    ContextMenu = ct,
                 };
-                button.Click += TaskClick;
-                height += 40;
+                button.Click += AddDeadLine;
                 LeftSide.Children.Add(button);
+                height += 40;
+                for (int i = 0; i < group.Tasks.Count; i++)
+                {
+                    ct = new ContextMenu();
+                    mi = new MenuItem() { Header = "Fjern opgave", Tag = group.Tasks[i].ID };
+                    mi.Click += RemoveTask;
+                    ct.Items.Add(mi);
+                    button = new Button()
+                    {
+                        VerticalAlignment = VerticalAlignment.Top,
+                        HorizontalAlignment = HorizontalAlignment.Left,
+                        Content = group.Tasks[i].Title,
+                        Tag = group.Tasks[i],
+                        Style = style,
+                        Height = 40,
+                        Width = 200,
+                        Margin = new Thickness(0, height, 0, 0),
+                        ContextMenu = ct,
+                    };
+                    button.Click += TaskClick;
+                    height += 40;
+                    LeftSide.Children.Add(button);
+                }
             }
             #endregion
         }
@@ -162,7 +189,7 @@ namespace ProjektStryring
         {
             this.NavigationService.Navigate(new HomePage(((Button)sender).Tag.ToString()));
         }
-        
+
         private void SaveGroup(object sender, RoutedEventArgs e)
         {
             MainWindow.logic.UpdateGroup(teamID, Desc.Text);
